@@ -44,7 +44,7 @@ def markdown_to_html_node(markdown):
         if "#" in segs[0]:
             n = len(segs[0])
             if n <= 6:
-                hnode = LeafNode(f"h{n}", block[1:])
+                hnode = LeafNode(f"h{n}", block[n + 1 :])
 
         # elif "*" == block[0] or "-" == block[0]:
         #    hnode = LeafNode("ul", f"{[f"<li>{s[2:]}</li>" for s in segs]}")
@@ -62,12 +62,12 @@ def markdown_to_html_node(markdown):
             hnode = LeafNode("ol", list_items)
 
         elif block[0] == ">":
-            hnode = LeafNode("blockquote", block[1:].strip())
+            hnode = LeafNode("blockquote", block[2:].strip())
 
         #   elif block[:2] == "```":
         #       hnode = LeafNode("code", block[3:])
 
-        elif block[:2] != "```":
+        elif block[:2] == "```":
             nodes = text_to_textnodes(block)
             # content = "".join([node.to_html() for node in nodes])
             [children.append(text_node_to_html_node(node)) for node in nodes]
