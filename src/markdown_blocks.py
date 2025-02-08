@@ -1,7 +1,7 @@
 import re
 
 from htmlnode import HTMLNode, LeafNode, ParentNode
-from textnode import text_node_to_html_node, text_to_textnodes
+from textnode import TextType, text_node_to_html_node, text_to_textnodes
 
 
 def markdown_to_blocks(markdown):
@@ -66,12 +66,23 @@ def markdown_to_html_node(markdown):
 
         #   elif block[:2] == "```":
         #       hnode = LeafNode("code", block[3:])
-
-        elif block[:2] == "```":
-            nodes = text_to_textnodes(block)
-            # content = "".join([node.to_html() for node in nodes])
-            [children.append(text_node_to_html_node(node)) for node in nodes]
+        elif block.startswith("```") and block.endswith("```"):
+            content = block[3:-3].strip()
+            children.append(LeafNode("pre", f"<code>{content}</code>"))
+        # elif block[:2] == "```":
+        #     nodes = text_to_textnodes(TextType.CODE)
+        #     # content = "".join([node.to_html() for node in nodes])
+        #     [children.append(text_node_to_html_node(node)) for node in nodes]
         else:
+            # Replace bold (**text**)
+            block = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", block)
+            # Replace italic (_text_ or *text*)
+            block = re.sub(r"_(.+?)_", r"<i>\1</i>", block)
+            block = re.sub(r"\*(.+?)\*", r"<i>\1</i>", block)
+            # Replace links [text](url)
+            block = re.sub(r"\[(.+?)\]\((.+?)\)", r'<a href="\2">\1</a>', block)
+            # Replace inline code (`text`)
+            block = re.sub(r"`(.+?)`", r"<code>\1</code>", block)
             hnode = LeafNode("p", block)
 
         children.append(hnode)

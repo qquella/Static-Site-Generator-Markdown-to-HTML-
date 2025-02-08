@@ -2,6 +2,7 @@ import os
 import shutil
 from os.path import isfile
 
+from genpage import generate_page
 from htmlnode import HTMLNode, LeafNode, ParentNode
 from textnode import *
 
@@ -11,6 +12,12 @@ def main():
     print(text_node1)
 
     copy_from_src_dir("./static/", "./public")
+    generate_page("content/index.md", "template.html", "public/index.html")
+
+
+# if os.path.exists("./public"):
+#     shutil.rmtree("./public")
+# os.makedirs("./public")
 
 
 def copy_from_src_dir(from_path, to_path):
