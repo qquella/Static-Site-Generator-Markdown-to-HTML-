@@ -40,7 +40,7 @@ func main(){
   </head>
 
   <body>
-    <article><div><h1>Tolkien Fan Club</h1><ul><li><b>I like Tolkien</b>. Read my <a href="/majesty" alt="first post here"></a> (sorry the link doesn't work yet)</li></ul><blockquote>All that is gold does not glitter</blockquote><h2>Reasons I like Tolkien</h2><ul><li>You can spend years studying the legendarium and still not understand its depths</li><li>It can be enjoyed by children and adults alike</li><li>Disney <i>didn't ruin it</i></li><li>It created an entirely new genre of fantasy</li></ul><h2>My favorite characters (in order)</h2><ol><li>Gandalf</li><li>Bilbo</li><li>Sam</li><li>Glorfindel</li><li>Galadriel</li><li>Elrond</li><li>Thorin</li><li>Sauron</li><li>Aragorn</li></ol><p>Here's what <code>elflang</code> looks like (the perfect coding language):</p><pre><code>func main(){
+    <article><div><h1>Tolkien Fan Club</h1><ul><li>I like Tolkien**. Read my [first post here](/majesty) (sorry the link doesn't work yet)</li></ul><blockquote>All that is gold does not glitter</blockquote><h2>Reasons I like Tolkien</h2><ul><li>You can spend years studying the legendarium and still not understand its depths</li><li>It can be enjoyed by children and adults alike</li><li>Disney _didn't ruin it_</li><li>It created an entirely new genre of fantasy</li></ul><h2>My favorite characters (in order)</h2><ol><li>Gandalf</li><li>Bilbo</li><li>Sam</li><li>Glorfindel</li><li>Galadriel</li><li>Elrond</li><li>Thorin</li><li>Sauron</li><li>Aragorn</li></ol><p>Here's what <code>elflang</code> looks like (the perfect coding language):</p><pre><code>func main(){
     fmt.Println("Hello, World!")
 }</code></pre><p>Here's what <code>elflang</code> looks like (the perfect coding language):</p></div></article>
   </body>

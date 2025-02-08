@@ -2,7 +2,7 @@ import os
 import shutil
 from os.path import isfile
 
-from genpage import generate_page
+from genpage import generate_page, generate_pages_recursive
 from htmlnode import HTMLNode, LeafNode, ParentNode
 from textnode import *
 
@@ -12,7 +12,8 @@ def main():
     print(text_node1)
 
     copy_from_src_dir("./static/", "./public")
-    generate_page("content/index.md", "template.html", "public/index.html")
+    # generate_page("content/index.md", "template.html", "public/index.html")
+    generate_pages_recursive("./content/", "template.html", "./public")
 
 
 # if os.path.exists("./public"):
